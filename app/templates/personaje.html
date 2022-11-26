@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1> Detalles</h1>
+<div class="row" style="margin-top: 30px">
+
+    <div class="col-md-3">
+        <div class="thumbnail">
+            <img src="{{ personaje.image}}" alt="...">
+            <div class="caption">
+                <h3>{{ personaje.name}}</h3>
+                <p>{{personaje.status}} - {{personaje.species}}</p>
+                <p>Type: {{personaje.type}}</p>
+                <p>Gender: {{personaje.gender}}</p>
+                <p>Last known location:</p>
+                <p><strong>{{personaje.location.name}}</strong></p>
+                <p>First seem in:</p>
+                <p><strong>{{personaje.origin.name}}</strong></p>
+                
+
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<a href="{{ url_for('book_router.create')}}">Crear libro</a>
+
+
+<h1> Book lists</h1>
+<div class="row" style="margin-top: 30px">
+    {% for book in books %}
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h5>{{ book.title }}</h5>
+                <p>{{ book.author }}</p>
+                <p># de paginas {{ book.pages }}</p>
+                <p>{{ book.isbn }}</p>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+{% endblock content %}
