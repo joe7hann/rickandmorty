@@ -38,6 +38,6 @@ def import_db():
         }
         db.personaje.insert_one(data)
 
-    return redirect(url_for('ram_router.lista'), code=200)
+    return redirect('/lista')
 
 
