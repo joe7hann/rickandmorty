@@ -19,6 +19,8 @@ def detalles(id):
     personaje = db.personaje.find_one({"id":id})
     return render_template("personaje.html", personaje = personaje)
 
+
+
 @ram_router.route("/import_db", methods=['GET','POST'])
 def import_db():
     for id in range(1,20):

@@ -2,28 +2,49 @@
 
 {% block content %}
 
+<div class="container mt-5">
+    <h1 class="text-center"> Personajes Rick and Morty</h1>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
 
-<h1> Personajes Rick and Morty</h1>
-<div class="row" style="margin-top: 30px">
-    {% for personaje in personajes %}
-    <div class="col-md-3">
-        <a href="{{ url_for('ram_router.detalles', id=personaje.id)}}">
-            <div class="thumbnail">
-                <img src="{{ personaje.image}}" alt="...">
-                <div class="caption">
-                    <h3>{{ personaje.name}}</h3>
-                    <p>{{personaje.status}} - {{personaje.species}}</p>
-                    <p>Last known location:</p>
-                    <p><strong>{{personaje.location.name}}</strong></p>
-                    <p>First seem in:</p>
-                    <p><strong>{{personaje.origin.name}}</strong></p>
+        {% for personaje in personajes %}
+        <a href="{{ url_for('ram_router.detalles', id=personaje.id)}}" style="text-decoration:none; color: #212529;">
+            <div class="col">
+                <div class="card " style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{{ personaje.image }}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body bg-light">
+                                <h5 class="card-title mb-0">{{ personaje.name }}</h5>
+                                <p class="card-subtitle mb-2">
+                                    {% if personaje.status == 'Dead' %}
+                                    <span
+                                        class="position-absolute p-2 ml-0 mr-1 mt-1 bg-danger border border-light rounded-circle"></span>
+                                    {% elif personaje.status == 'Alive' %}
+                                    <span
+                                        class="position-absolute p-2 ml-0 mr-1 mt-1 bg-success border border-light rounded-circle"></span>
+                                    {% elif personaje.status == 'unknown' %}
+                                    <span
+                                        class="position-absolute p-2 ml-0 mr-1 mt-1 bg-warning border border-light rounded-circle"></span>
+                                    {% endif %}
+                                    <small class="text-muted mx-4"><span>{{ personaje.status }} - {{ personaje.species
+                                            }}</span></small>
+                                </p>
+                                <p class="card-subtitle mb-0"><small class="text-muted">Last known location:</small></p>
+                                <p class="card-subtitle mb-3">{{ personaje.location.name }}</p>
+                                <p class="card-subtitle mb-0"><small class="text-muted">First seem in:</small></p>
+                                <p class="card-subtitle mb-0">{{ personaje.origin.name }}</p>
 
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </a>
+        {% endfor %}
 
     </div>
-
-    {% endfor %}
+</div>
 </div>
 {% endblock content %}
