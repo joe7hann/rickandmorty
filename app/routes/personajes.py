@@ -24,7 +24,7 @@ def capitulos():
 @ram_router.route("/capitulo/<int:id>")
 def capitulo_detalles(id):
     capitulo = db.capitulos.find_one({"id":id})
-    personajes_cap = db.personaje.find({"episodes":str(id)},{"name":1,"image":1})
+    personajes_cap = db.personaje.find({"episodes":str(id)},{"name":1,"image":1,"type":1,"location":1})
     # db.personaje.find({"episodes":{$all:[str(id)]}})
     # db.personaje.find( { "episodes": { $all: [ [ str(id) ] ] } },{"name":1,"image":1} )
 
