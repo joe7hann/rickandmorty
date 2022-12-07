@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <a href="{{ url_for ('ram_router.lista')}}">Personajes</a>
+    <h1 class="text-center"> Capitulos de Rick and Morty</h1>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+
+        {% for capitulo in capitulos %}
+        <a href="{{ url_for('ram_router.capitulo_detalles', id=capitulo.id)}}" style="text-decoration:none; color: #212529;">
+            <div class="col">
+                <div class="card " style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-8">
+                            <div class="card-body bg-light">
+                                <h5 class="card-subtitle mb-0"><small class="text-muted">Capitulo:</small></h5>
+                                <h3 class="card-title mb-0">{{ capitulo.name }}</h3>
+                                
+                                <p class="card-subtitle mb-0"><small class="text-muted">Fecha de estreno:</small></p>
+                                <p class="card-subtitle mb-3">{{ capitulo.air_date }}</p>
+                                <p class="card-subtitle mb-0"><small class="text-muted">Episodio:</small></p>
+                                <p class="card-subtitle mb-0">{{ capitulo.episode }}</p>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4 my-auto d-block">
+                            <img src="https://www.formulatv.com/images/series/posters/1500/1524/dest_2.jpg" width="180" height="200" class="rounded-start" alt="...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+
+    </div>
+</div>
+</div>
+{% endblock content %}
