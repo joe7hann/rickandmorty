@@ -4,6 +4,10 @@
 - flask (python)
 - bootstrap
 - mongodb
+## Getting Start
+### the following URLs imports data from the official [rick and morty API](https://rickandmortyapi.com/) to our DB in mongodb
+##### importing characters: http://127.0.0.1:5000/import_db
+##### importing episodes: http://127.0.0.1:5000/import_caps
 
 ## Screenshots
 ### Personajes:
